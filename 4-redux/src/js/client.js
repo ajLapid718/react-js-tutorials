@@ -1,10 +1,21 @@
 import { combineReducers createStore } from 'redux';
 
-const userReducer = (state, actions) => {
+const initialUserState = {
+  user: {
+    name: "Will",
+    age: 35
+  }
+};
+
+const initialTweetsState = {
+  tweets: []
+};
+
+const userReducer = (prevState = initialUserState, actions) => {
 
 }
 
-const tweetsReducer = (state, actions) => {
+const tweetsReducer = (prevState = initialTweetsState, actions) => {
 
 }
 
@@ -14,13 +25,7 @@ const reducers = commbineReducers({
 })
 
 // Store;
-const store = createStore(reducer, {
-  user: {
-    name: "Will",
-    age: 35
-  },
-  tweets: []
-});
+const store = createStore(reducers);
 
 // Subscribe;
 store.subscribe(() => {
