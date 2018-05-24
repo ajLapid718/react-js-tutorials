@@ -1,23 +1,26 @@
-import { createStore } from 'redux';
+import { combineReducers createStore } from 'redux';
 
-// Action Naming;
-const INC = "INC";
-const DEC = "DEC";
+const userReducer = (state, actions) => {
 
-// Reducer;
-const reducer = function(state, action) {
-  switch(action.type) {
-    case INC:
-      return state + action.payload;
-    case DEC:
-      return state + action.payload;
-    default:
-      return state;
-    }
 }
 
+const tweetsReducer = (state, actions) => {
+
+}
+
+const reducers = commbineReducers({
+  user: userReducer,
+  tweets: tweetsReducer
+})
+
 // Store;
-const store = createStore(reducer, 0);
+const store = createStore(reducer, {
+  user: {
+    name: "Will",
+    age: 35
+  },
+  tweets: []
+});
 
 // Subscribe;
 store.subscribe(() => {
@@ -25,8 +28,3 @@ store.subscribe(() => {
 })
 
 // Dispatch;
-store.dispatch({type: INC, payload: 1});
-store.dispatch({type: INC, payload: 1});
-store.dispatch({type: DEC, payload: 1});
-store.dispatch({type: INC, payload: 1});
-store.dispatch({type: INC, payload: 1});
