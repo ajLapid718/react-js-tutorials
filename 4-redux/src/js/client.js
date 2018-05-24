@@ -21,10 +21,10 @@ const userReducer = (prevState = initialUserState, action) => {
   let newState = Object.assign({}, prevState);
   switch(action.type) {
     case CHANGE_NAME:
-      newState.name = action.payload;
+      newState.user.name = action.payload;
       return newState;
     case CHANGE_AGE:
-      newState.age = action.payload;
+      newState.user.age = action.payload;
       return newState;
     default:
       return prevState;
