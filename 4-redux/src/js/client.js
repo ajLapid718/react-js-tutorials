@@ -2,7 +2,7 @@ import { applyMiddleware, createStore } from "redux";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 import axios from "axios"; // XHR request;
-import promise from "reduex-promise-middleware";
+import promise from "redux-promise-middleware";
 
 const initialState = {
   fetching: false,
