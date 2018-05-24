@@ -15,6 +15,12 @@ store.subscribe(() => {
 })
 
 store.dispatch((dispatch) => {
-  dispatch({type: "FOO"})
-  dispatch({type: "BAR"})
+  dispatch({type: "FETCH_USERS_START"})
+  axios.get("http://rest.learncode.academy/api/wstern/users")
+    .then((response) => {
+      dispatch({type: "RECEIVE_USERS", payload: response.data})
+    })
+    .catch((err) => {
+      dispatch({type: "FETCH_USERS_ERROR", payload: err})
+    })
 }
