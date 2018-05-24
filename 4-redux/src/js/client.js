@@ -23,6 +23,14 @@ const logger = (store) => (next) => (action) => {
   next(action);
 }
 
+const error = (store) => (next) => (action) => {
+  try {
+    next(action);
+  } catch(e) {
+    console.log("ERROR!", e);
+  }
+}
+
 const middleware = applyMiddleware(logger);
 
 // Store;
