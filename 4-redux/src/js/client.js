@@ -36,7 +36,7 @@ const tweetsReducer = (prevState = initialTweetsState, action) => {
 }
 
 // COMBINED REDUCERS;
-const reducers = commbineReducers({
+const reducers = combineReducers({
   user: userReducer,
   tweets: tweetsReducer
 })
