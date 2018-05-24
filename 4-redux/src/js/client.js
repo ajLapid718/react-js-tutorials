@@ -1,4 +1,4 @@
-import { applyMiddleware createStore } from "redux";
+import { applyMiddleware, createStore } from "redux";
 
 // Action Naming;
 const INC = "INC";
@@ -17,7 +17,11 @@ const reducer = (initialState = 0, action) => {
 }
 
 // Middleware;
-const middleware = applyMiddleware();
+const logger = (store) => (next) => (action) => {
+  console.log("action fired", action);
+}
+
+const middleware = applyMiddleware(logger);
 
 // Store;
 const store = createStore(reducer, 1, middleware)
