@@ -1,6 +1,7 @@
 import { applyMiddleware, createStore } from "redux";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
+import axios from "axios"; // XHR request;
 
 const reducer = (state={}, action) => {
   return state;
