@@ -33,6 +33,7 @@ const userReducer = (prevState = initialUserState, action) => {
 
 const tweetsReducer = (prevState = initialTweetsState, action) => {
   let newState = Object.assign({}, prevState);
+  return newState;
 }
 
 // COMBINED REDUCERS;
