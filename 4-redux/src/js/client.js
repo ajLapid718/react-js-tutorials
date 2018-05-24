@@ -19,12 +19,19 @@ const reducer = (initialState = 0, action) => {
 // Middleware;
 const logger = (store) => (next) => (action) => {
   console.log("action fired", action);
+  console.log("current state of store:", store.getState());
+  next(action);
 }
 
 const middleware = applyMiddleware(logger);
 
 // Store;
 const store = createStore(reducer, 1, middleware)
+
+// Subscribe;
+store.subscribe(() => {
+  console.log("new state of store:", store.getState());
+})
 
 // Dispatch;
 store.dispatch({type: "INC", payload: 1});
